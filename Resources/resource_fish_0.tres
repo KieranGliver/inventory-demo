@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourceItem" load_steps=3 format=3 uid="uid://cbrs0nx4yxtfy"]
+
+[ext_resource type="Script" path="res://Resources/resource_item.gd" id="1_a7qna"]
+[ext_resource type="Texture2D" uid="uid://csxsh2ey55y31" path="res://Sprites/Inventory/Fish0Invetory.png" id="2_p4lxw"]
+
+[resource]
+script = ExtResource("1_a7qna")
+display_name = "Yellow Smalls"
+texture = ExtResource("2_p4lxw")

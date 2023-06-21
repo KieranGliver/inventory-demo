@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourceItem" load_steps=3 format=3 uid="uid://b04oblxvvsrie"]
+
+[ext_resource type="Script" path="res://Resources/resource_item.gd" id="1_clpdk"]
+[ext_resource type="Texture2D" uid="uid://yiflcd4lipol" path="res://Sprites/Inventory/Fish3Inventory.png" id="2_lg13c"]
+
+[resource]
+script = ExtResource("1_clpdk")
+display_name = "Blue Large"
+texture = ExtResource("2_lg13c")

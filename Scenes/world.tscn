@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://76x7biwsr7bp"]
+[gd_scene load_steps=12 format=3 uid="uid://bgwq86qf1qi2y"]
 
-[ext_resource type="PackedScene" uid="uid://jiq4lmb7fctr" path="res://Character/player.tscn" id="1_ctch5"]
+[ext_resource type="PackedScene" uid="uid://bn7osuhpomg8v" path="res://Character/Scenes/player.tscn" id="1_ctch5"]
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_cyvrl"]
 [ext_resource type="Texture2D" uid="uid://dju85a25753v2" path="res://Sprites/Background/Background.png" id="1_mftxm"]
 [ext_resource type="Texture2D" uid="uid://jqxyxr8p3bq2" path="res://Sprites/Tiles/Swamp/Tileset.png" id="2_ruvog"]
 [ext_resource type="Texture2D" uid="uid://c63fioxqlqqg6" path="res://Sprites/Objects/Fishing_hut.png" id="3_yumlb"]
 [ext_resource type="Texture2D" uid="uid://cmvfo4yiraqk4" path="res://Sprites/Background/Layers/5.png" id="4_knr1c"]
 [ext_resource type="AudioStream" uid="uid://c5vcp7dbbtixv" path="res://Audio/Swamp/Night-swamp-sounds-for-sleeping-frogs_-possums_-bats-_1-hour_-Nature-Track.ogg" id="5_x5eyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy64r"]
+size = Vector2(178, 4)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ugki8"]
+points = PackedVector2Array(0, 0, 25, 0, 0, -32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1ges"]
 resource_name = "Swamp"
@@ -92,6 +99,7 @@ texture_region_size = Vector2i(32, 32)
 9:0/0 = 0
 9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:0/0/physics_layer_0/angular_velocity = 0.0
+9:0/0/custom_data_0 = true
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 0
@@ -202,6 +210,7 @@ texture_region_size = Vector2i(32, 32)
 9:1/0 = 0
 9:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:1/0/physics_layer_0/angular_velocity = 0.0
+9:1/0/custom_data_0 = true
 0:2/0 = 0
 0:2/0/terrain_set = 0
 0:2/0/terrain = 0
@@ -307,6 +316,7 @@ texture_region_size = Vector2i(32, 32)
 9:2/0 = 0
 9:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:2/0/physics_layer_0/angular_velocity = 0.0
+9:2/0/custom_data_0 = true
 0:3/0 = 0
 0:3/0/terrain_set = 0
 0:3/0/terrain = 0
@@ -381,6 +391,7 @@ texture_region_size = Vector2i(32, 32)
 9:3/0 = 0
 9:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:3/0/physics_layer_0/angular_velocity = 0.0
+9:3/0/custom_data_0 = true
 0:4/0 = 0
 0:4/0/terrain_set = 0
 0:4/0/terrain = 0
@@ -454,6 +465,7 @@ texture_region_size = Vector2i(32, 32)
 9:4/0 = 0
 9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:4/0/physics_layer_0/angular_velocity = 0.0
+9:4/0/custom_data_0 = true
 0:5/0 = 0
 0:5/0/terrain_set = 0
 0:5/0/terrain = 0
@@ -543,13 +555,17 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_3uxob"]
 tile_size = Vector2i(32, 32)
 uv_clipping = true
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+custom_data_layer_0/name = "is_water"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_h1ges")
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_cyvrl")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(404, 180.5)
@@ -562,10 +578,21 @@ position = Vector2(563, 202)
 texture = ExtResource("3_yumlb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FishingHut"]
-visible = false
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishingHut/StaticBody2D"]
-polygon = PackedVector2Array(-81, 22, -45, 22, -45, 5, 96, 5, 96, 1, -49, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingHut/StaticBody2D"]
+position = Vector2(7, 3)
+shape = SubResource("RectangleShape2D_jy64r")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="FishingHut"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingHut/StaticBody2D2"]
+position = Vector2(-57, 26)
+rotation = -1.5708
+shape = SubResource("ConvexPolygonShape2D_ugki8")
+one_way_collision = true
 
 [node name="Player" parent="." instance=ExtResource("1_ctch5")]
 position = Vector2(436, 207)
@@ -582,5 +609,6 @@ scale = Vector2(1.396, 1.108)
 texture = ExtResource("4_knr1c")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(147, -63)
 stream = ExtResource("5_x5eyu")
 volume_db = -10.0

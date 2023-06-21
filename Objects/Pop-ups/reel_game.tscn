@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6y37m3sjvjj8"]
+
+[ext_resource type="Script" path="res://Objects/Pop-ups/reelgamecontroller.gd" id="1_0phv4"]
+[ext_resource type="Texture2D" uid="uid://i3e0a4o1sjmu" path="res://Sprites/Reeling/ReelFillLeft.png" id="2_gdiim"]
+[ext_resource type="Texture2D" uid="uid://dx02bvxxq4840" path="res://Sprites/Reeling/ReelOutlineLeft.png" id="3_kuqk6"]
+[ext_resource type="Texture2D" uid="uid://ccj6vpaefdr5p" path="res://Sprites/Reeling/ReelFillRight.png" id="4_61doy"]
+[ext_resource type="Texture2D" uid="uid://bnymikifffxal" path="res://Sprites/Reeling/ReelOutlineRight.png" id="5_hu3cw"]
+[ext_resource type="Texture2D" uid="uid://bf68ukviq0fq5" path="res://Sprites/Reeling/ReelFillMiddle.png" id="6_tahtm"]
+[ext_resource type="Texture2D" uid="uid://b3cmro43fnvuj" path="res://Sprites/Reeling/ReelOutlineMiddle.png" id="7_p2s0m"]
+[ext_resource type="Texture2D" uid="uid://boul8t51ml4c" path="res://Sprites/Reeling/Green8x8.png" id="8_i6d2i"]
+[ext_resource type="Texture2D" uid="uid://bse5m8ow8pq7j" path="res://Sprites/Reeling/Bar.png" id="9_g31iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vekds"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3pjr"]
+size = Vector2(4, 10)
+
+[node name="ReelGame" type="Node2D"]
+script = ExtResource("1_0phv4")
+
+[node name="LeftBar" type="Node2D" parent="."]
+
+[node name="Filler" type="Sprite2D" parent="LeftBar"]
+texture_filter = 1
+texture = ExtResource("2_gdiim")
+
+[node name="Outline" type="Sprite2D" parent="LeftBar"]
+texture_filter = 1
+texture = ExtResource("3_kuqk6")
+
+[node name="RightBar" type="Node2D" parent="."]
+
+[node name="Filler" type="Sprite2D" parent="RightBar"]
+texture_filter = 1
+texture = ExtResource("4_61doy")
+
+[node name="Outline" type="Sprite2D" parent="RightBar"]
+texture_filter = 1
+texture = ExtResource("5_hu3cw")
+
+[node name="MiddleBar" type="Node2D" parent="."]
+
+[node name="Filler" type="Sprite2D" parent="MiddleBar"]
+texture_filter = 1
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(1, 0.8)
+texture = ExtResource("6_tahtm")
+
+[node name="Outline" type="Sprite2D" parent="MiddleBar"]
+texture_filter = 1
+texture = ExtResource("7_p2s0m")
+
+[node name="GreenBar" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="GreenBar"]
+position = Vector2(2.38419e-07, -8.9407e-08)
+scale = Vector2(1, 0.75)
+texture = ExtResource("8_i6d2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenBar"]
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(1, 0.75)
+shape = SubResource("RectangleShape2D_vekds")
+
+[node name="Bar" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar"]
+texture_filter = 1
+texture = ExtResource("9_g31iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar"]
+shape = SubResource("RectangleShape2D_n3pjr")
+
+[connection signal="area_entered" from="GreenBar" to="." method="_on_green_bar_area_entered"]
+[connection signal="area_exited" from="GreenBar" to="." method="_on_green_bar_area_exited"]

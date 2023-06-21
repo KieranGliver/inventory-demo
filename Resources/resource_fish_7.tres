@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ResourceItem" load_steps=2 format=3 uid="uid://dj5dnkdc1qx4a"]
+
+[ext_resource type="Script" path="res://Resources/resource_item.gd" id="1_kqe7x"]
+
+[resource]
+script = ExtResource("1_kqe7x")
+display_name = "Red Ray"

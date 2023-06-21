@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyf27redp1igl"]
+
+[ext_resource type="Texture2D" uid="uid://csxsh2ey55y31" path="res://Sprites/Inventory/Fish0Invetory.png" id="1_3jeph"]
+
+[node name="InventoryDisplay" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ReourceItemDisplay" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ReourceItemDisplay"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_3jeph")
+stretch_mode = 4

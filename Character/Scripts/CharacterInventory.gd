@@ -1,7 +1,5 @@
 extends Node
 
-class_name Inventory
-
 @export var resources : Dictionary = { }
 
 func add_resources(type : ResourceItem, amount : int):

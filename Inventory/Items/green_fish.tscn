@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://co2kir5jqqvdb"]
+
+[ext_resource type="Texture2D" uid="uid://cytpmv1ianr7y" path="res://Sprites/Inventory/Items/Fish1Inventory.png" id="1_rdgbx"]
+[ext_resource type="Script" uid="uid://c4f5lmwp3mj0i" path="res://Inventory/Items/item.gd" id="2_a4a0y"]
+
+[node name="Item" type="TextureRect"]
+texture = ExtResource("1_rdgbx")
+script = ExtResource("2_a4a0y")
+id = "green_fish"
+item_name = "Green Medium"

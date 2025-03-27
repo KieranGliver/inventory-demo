@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmjr76hwsbh13"]
+
+[ext_resource type="Texture2D" uid="uid://b1jol81d8h64t" path="res://Sprites/Inventory/UI/item_slot.png" id="1_n2qxa"]
+[ext_resource type="Script" uid="uid://tibv0stj8212" path="res://Inventory/UI/equipment_slot.gd" id="2_no7wt"]
+
+[node name="EquipmentSlot" type="TextureRect"]
+mouse_filter = 0
+texture = ExtResource("1_n2qxa")
+script = ExtResource("2_no7wt")
+
+[node name="ItemContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.5
+offset_top = 2.0
+offset_right = -1.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Placeholder" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered" flags=18]

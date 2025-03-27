@@ -13,7 +13,6 @@ class_name Player
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : float = 0.0
-var mouse_inside : bool = false
 
 func _ready():
 	animation_tree.active = true
@@ -66,7 +65,7 @@ func spawn_instance(packed_scene : PackedScene, parent : Node, r_position : Vect
 	return instance
 
 func _on_mouse_entered():
-	mouse_inside = true
+	SignalManager.mouse_entered_object.emit(self)
 
 func _on_mouse_exited():
-	mouse_inside = false
+	SignalManager.mouse_exited_object.emit(self)

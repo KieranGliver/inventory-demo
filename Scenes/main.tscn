@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=3 uid="uid://6mmb2kk64xs"]
+
+[ext_resource type="PackedScene" uid="uid://bgwq86qf1qi2y" path="res://Scenes/world.tscn" id="1_5qigi"]
+[ext_resource type="PackedScene" uid="uid://1k84x8cr3gyg" path="res://Inventory/UI/inventory_container.tscn" id="1_7pgge"]
+[ext_resource type="Script" uid="uid://bgr3i6xqqdd1d" path="res://Scripts/inventory_manager.gd" id="1_8u40c"]
+[ext_resource type="Script" uid="uid://u1uifpq72wr1" path="res://Scripts/ui_container.gd" id="2_lmudl"]
+[ext_resource type="PackedScene" uid="uid://b5aufc2xxfaag" path="res://Inventory/UI/item_info.tscn" id="3_24pfi"]
+[ext_resource type="Script" uid="uid://bvaajy3yeh4y0" path="res://Objects/chest/chest.gd" id="4_2wfnq"]
+[ext_resource type="Script" uid="uid://w1jpkfn1kjvs" path="res://Objects/chest/rng_chest.gd" id="5_laxu8"]
+[ext_resource type="PackedScene" uid="uid://c8o2scdf6mfk4" path="res://Inventory/UI/settings.tscn" id="6_0a46b"]
+[ext_resource type="PackedScene" uid="uid://c8dopi63a1n8c" path="res://Inventory/UI/inventory_player.tscn" id="6_flg6g"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="World" parent="Game" instance=ExtResource("1_5qigi")]
+position = Vector2(-287, -15)
+
+[node name="Manager" type="Node2D" parent="."]
+
+[node name="InventoryManager" type="Node2D" parent="Manager"]
+script = ExtResource("1_8u40c")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UIContainer" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_lmudl")
+
+[node name="Windows" type="Control" parent="UI/UIContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InventoryContainer" parent="UI/UIContainer/Windows" instance=ExtResource("1_7pgge")]
+visible = false
+layout_mode = 1
+offset_left = -2.0
+offset_top = -143.0
+offset_right = 224.0
+offset_bottom = -4.0
+
+[node name="Settings" parent="UI/UIContainer/Windows" instance=ExtResource("6_0a46b")]
+layout_mode = 1
+offset_left = 16.0
+offset_top = -103.0
+offset_right = 242.0
+offset_bottom = 3.0
+safe_zone = null
+
+[node name="InventoryPlayer" parent="UI/UIContainer/Windows" instance=ExtResource("6_flg6g")]
+layout_mode = 1
+offset_left = -129.0
+offset_top = 67.0
+offset_right = 97.0
+offset_bottom = 301.0
+
+[node name="ItemInHand" type="Control" parent="UI/UIContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ItemInfo" parent="UI/UIContainer" instance=ExtResource("3_24pfi")]
+visible = false
+layout_mode = 0
+
+[node name="Buttons" type="Control" parent="UI/UIContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Chest" type="Button" parent="UI/UIContainer/Buttons"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 242.0
+offset_right = 85.0
+offset_bottom = 273.0
+text = "Chest"
+script = ExtResource("4_2wfnq")
+amount = 10
+inventory_name = "Chest"
+items = Array[String](["yellow_fish", "green_fish", "brown_fish", "blue_fish"])
+
+[node name="ChestRNG" type="Button" parent="UI/UIContainer/Buttons"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 243.0
+offset_right = 282.0
+offset_bottom = 274.0
+text = "Random"
+script = ExtResource("5_laxu8")
+number_of_items = 7
+amount = 15
+inventory_name = "Randy"
+items = Array[String](["yellow_fish", "green_fish", "brown_fish", "blue_fish"])
+
+[node name="Settings" type="Button" parent="UI/UIContainer/Buttons"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 36.0
+text = "Settings"
+
+[connection signal="pressed" from="UI/UIContainer/Buttons/Chest" to="UI/UIContainer/Buttons/Chest" method="_on_pressed"]
+[connection signal="pressed" from="UI/UIContainer/Buttons/ChestRNG" to="UI/UIContainer/Buttons/ChestRNG" method="_on_pressed"]
+[connection signal="pressed" from="UI/UIContainer/Buttons/Settings" to="UI/UIContainer" method="_on_settings_pressed"]

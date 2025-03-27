@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr7q2ccdq1leu"
-path="res://.godot/imported/Fish2Inventory.png-2781bc2d9438092a3617a1f58b5bbb6a.ctex"
+uid="uid://qp73qy0webb5"
+path="res://.godot/imported/bar.png-bfefb56c91354b83aefebf62a2af67cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Inventory/Fish2Inventory.png"
-dest_files=["res://.godot/imported/Fish2Inventory.png-2781bc2d9438092a3617a1f58b5bbb6a.ctex"]
+source_file="res://Sprites/Inventory/UI/bar.png"
+dest_files=["res://.godot/imported/bar.png-bfefb56c91354b83aefebf62a2af67cd.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

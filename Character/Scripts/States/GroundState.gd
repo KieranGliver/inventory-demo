@@ -15,8 +15,11 @@ func state_input(event : InputEvent):
 		# left mouse pressed
 		if event.button_index == 1 and event.pressed:
 			# begin launching if mouse inside character
-			if character.mouse_inside and character.velocity == Vector2.ZERO:
-				switch_state(casting_state, character_state_machine.casting_animation)
+			if character.velocity == Vector2.ZERO:
+				if MouseHoverManager.hover == character:
+					switch_state(casting_state, character_state_machine.casting_animation)
+				elif MouseHoverManager.hover is RockBreakable:
+					switch_state(mining_state, character_state_machine.mining_animation)
 	
 	
 	if(event.is_action_pressed("jump")):

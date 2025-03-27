@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cegurl7wdeaqs"]
+
+[ext_resource type="Texture2D" uid="uid://b1jol81d8h64t" path="res://Sprites/Inventory/UI/item_slot.png" id="1_j1803"]
+[ext_resource type="Script" uid="uid://be8scjoynm7as" path="res://Inventory/UI/inventory_slot.gd" id="2_37m1m"]
+
+[node name="InventorySlot" type="TextureRect"]
+mouse_filter = 0
+texture = ExtResource("1_j1803")
+script = ExtResource("2_37m1m")
+
+[node name="ItemContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.5
+offset_top = 2.0
+offset_right = -1.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

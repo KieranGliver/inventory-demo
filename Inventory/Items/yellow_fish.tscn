@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0s3d2th4tm46"]
+
+[ext_resource type="Texture2D" uid="uid://csxsh2ey55y31" path="res://Sprites/Inventory/Items/Fish0Invetory.png" id="1_pn6yu"]
+[ext_resource type="Script" uid="uid://c4f5lmwp3mj0i" path="res://Inventory/Items/item.gd" id="2_p0213"]
+
+[node name="Item" type="TextureRect"]
+texture = ExtResource("1_pn6yu")
+script = ExtResource("2_p0213")
+id = "yellow_fish"
+item_name = "Yellow Smalls"

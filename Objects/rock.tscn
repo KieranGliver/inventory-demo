@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8r0klcsdpln"]
+
+[ext_resource type="Texture2D" uid="uid://depp5bvo0tms7" path="res://Sprites/Objects/rock.png" id="1_la05j"]
+[ext_resource type="Script" uid="uid://dj2i3ttep2cye" path="res://Objects/rock.gd" id="2_vgxgb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfrvw"]
+radius = 20.0
+height = 48.0
+
+[node name="Rock" type="Area2D"]
+script = ExtResource("2_vgxgb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_la05j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kfrvw")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

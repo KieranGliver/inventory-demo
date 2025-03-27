@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c44vbhmw36ujj"
+path="res://.godot/imported/Arcadepix Plus.ttf-2c7c85ef04318f5256d1fb89a9dd49f8.fontdata"
+
+[deps]
+
+source_file="res://Font/Arcadepix Plus.ttf"
+dest_files=["res://.godot/imported/Arcadepix Plus.ttf-2c7c85ef04318f5256d1fb89a9dd49f8.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=0
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=false
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

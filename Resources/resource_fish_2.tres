@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ResourceItem" load_steps=3 format=3 uid="uid://m2qmx1628go3"]
+[gd_resource type="Resource" script_class="ResourceItem" load_steps=3 format=3 uid="uid://cy76gs8830soq"]
 
-[ext_resource type="Script" path="res://Resources/resource_item.gd" id="1_82mqp"]
-[ext_resource type="Texture2D" uid="uid://cr7q2ccdq1leu" path="res://Sprites/Inventory/Fish2Inventory.png" id="2_tc65v"]
+[ext_resource type="Script" uid="uid://c8gynejq5lyfx" path="res://Resources/resource_item.gd" id="1_82mqp"]
+[ext_resource type="Texture2D" uid="uid://cr7q2ccdq1leu" path="res://Sprites/Inventory/Items/Fish2Inventory.png" id="2_tc65v"]
 
 [resource]
 script = ExtResource("1_82mqp")

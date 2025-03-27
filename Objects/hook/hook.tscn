@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://q3ry6ysrgxga"]
 
-[ext_resource type="Script" path="res://Objects/hook/hook.gd" id="1_ven0r"]
+[ext_resource type="Script" uid="uid://dyaeakjwc12io" path="res://Objects/hook/hook.gd" id="1_ven0r"]
 [ext_resource type="Texture2D" uid="uid://dwjhefdqrifpk" path="res://Sprites/Character/hook.png" id="2_fctq8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gkres"]

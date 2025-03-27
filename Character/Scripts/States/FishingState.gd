@@ -25,12 +25,11 @@ func on_exit():
 
 func state_input(event : InputEvent):
 	if event is InputEventMouseButton:
-		
-		if event.button_index == 1 and event.pressed:
+		if event.button_index == 1 and event.pressed and MouseHoverManager.hover == character:
 			if fish:
 				reeling_state.hook_instance = hook_instance
 				switch_state(reeling_state, character_state_machine.reeling_animation)
-			elif character.mouse_inside:
+			else:
 				casting_state.hook_instance = hook_instance
 				switch_state(casting_state, character_state_machine.casting_animation)
 	

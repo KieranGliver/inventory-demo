@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvefv1wb40olg"]
+
+[ext_resource type="Texture2D" uid="uid://cr7q2ccdq1leu" path="res://Sprites/Inventory/Items/Fish2Inventory.png" id="1_hnlyn"]
+[ext_resource type="Script" uid="uid://c4f5lmwp3mj0i" path="res://Inventory/Items/item.gd" id="2_jnknq"]
+
+[node name="Item" type="TextureRect"]
+texture = ExtResource("1_hnlyn")
+script = ExtResource("2_jnknq")
+id = "brown_fish"
+item_name = "Flounder"

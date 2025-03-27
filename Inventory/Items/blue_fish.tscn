@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7sv4o6ivd8h2"]
+
+[ext_resource type="Texture2D" uid="uid://yiflcd4lipol" path="res://Sprites/Inventory/Items/Fish3Inventory.png" id="1_p7oxh"]
+[ext_resource type="Script" uid="uid://c4f5lmwp3mj0i" path="res://Inventory/Items/item.gd" id="2_vt6f0"]
+
+[node name="Item" type="TextureRect"]
+texture = ExtResource("1_p7oxh")
+script = ExtResource("2_vt6f0")
+id = "blue_fish"
+item_name = "Blue Large"

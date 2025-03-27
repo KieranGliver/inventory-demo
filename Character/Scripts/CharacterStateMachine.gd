@@ -17,6 +17,7 @@ var fishing_animation : String = "fishing"
 var catch_animation : String = "catch"
 var casting_animation : String = "fishing"
 var reeling_animation : String = "fishing"
+var mining_animation : String = "mining"
 
 var states : Array[State]
 
@@ -67,3 +68,4 @@ func set_states(state : State):
 	state.landing_state = $Landing
 	state.casting_state = $Casting
 	state.reeling_state = $Reeling
+	state.mining_state = $Mining

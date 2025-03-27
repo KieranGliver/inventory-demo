@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://c7887qprjbdwc"]
 
-[ext_resource type="Script" path="res://Objects/Pickups/pickup.gd" id="1_v2tix"]
-[ext_resource type="Resource" uid="uid://cbrs0nx4yxtfy" path="res://Resources/resource_fish_0.tres" id="2_wfxsh"]
+[ext_resource type="Script" uid="uid://c135sopc66mel" path="res://Objects/Pickups/pickup.gd" id="1_v2tix"]
+[ext_resource type="Resource" uid="uid://ilwmff5ssdc5" path="res://Resources/resource_fish_0.tres" id="2_wfxsh"]
 [ext_resource type="Texture2D" uid="uid://cfsnofyq5aqbw" path="res://Sprites/Catch/1.png" id="3_rc4by"]
 [ext_resource type="Texture2D" uid="uid://tf1pdwwo5vh2" path="res://Sprites/Catch/2.png" id="4_pf8si"]
 [ext_resource type="Texture2D" uid="uid://ds3v7gwvqjvg5" path="res://Sprites/Catch/3.png" id="5_tmx08"]
@@ -174,8 +174,8 @@ height = 12.0
 disable_mode = 2
 collision_layer = 2
 collision_mask = 3
-max_contacts_reported = 3
 contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("1_v2tix")
 resource_type = ExtResource("2_wfxsh")
 

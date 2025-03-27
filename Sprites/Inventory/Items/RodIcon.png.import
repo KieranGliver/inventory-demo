@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cytpmv1ianr7y"
-path="res://.godot/imported/Fish1Inventory.png-98220cec438c3a19d14ff4b80d810298.ctex"
+uid="uid://d1uahlqfx7pge"
+path="res://.godot/imported/RodIcon.png-5004cc1e96db9ef819360d98d026ccf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Inventory/Fish1Inventory.png"
-dest_files=["res://.godot/imported/Fish1Inventory.png-98220cec438c3a19d14ff4b80d810298.ctex"]
+source_file="res://Sprites/Inventory/Items/RodIcon.png"
+dest_files=["res://.godot/imported/RodIcon.png-5004cc1e96db9ef819360d98d026ccf0.ctex"]
 
 [params]
 

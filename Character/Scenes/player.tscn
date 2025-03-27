@@ -1,21 +1,22 @@
-[gd_scene load_steps=59 format=3 uid="uid://bn7osuhpomg8v"]
+[gd_scene load_steps=63 format=3 uid="uid://bh7vf2pf7igrf"]
 
-[ext_resource type="Script" path="res://Character/Scripts/player.gd" id="1_c3ldi"]
-[ext_resource type="Texture2D" uid="uid://d1uahlqfx7pge" path="res://Sprites/Inventory/RodIcon.png" id="2_awhx3"]
+[ext_resource type="Script" uid="uid://cuylsafk6stb3" path="res://Character/Scripts/player.gd" id="1_c3ldi"]
+[ext_resource type="Texture2D" uid="uid://d1uahlqfx7pge" path="res://Sprites/Inventory/Items/RodIcon.png" id="2_o1n6y"]
 [ext_resource type="Texture2D" uid="uid://dmkpewdtdsf2j" path="res://Sprites/Character/CharacterSpriteSheet.png" id="3_sd3hb"]
-[ext_resource type="Script" path="res://Character/Scripts/States/GroundState.gd" id="5_4vx44"]
-[ext_resource type="Script" path="res://Character/Scripts/CharacterStateMachine.gd" id="6_3uil5"]
-[ext_resource type="Script" path="res://Character/Scripts/States/AirState.gd" id="7_hdgs6"]
-[ext_resource type="Script" path="res://Character/Scripts/States/FishingState.gd" id="8_y7btg"]
+[ext_resource type="Script" uid="uid://ctn20hcrl1pr" path="res://Character/Scripts/States/GroundState.gd" id="5_4vx44"]
+[ext_resource type="Script" uid="uid://uc5i1fi3la37" path="res://Character/Scripts/CharacterStateMachine.gd" id="6_3uil5"]
+[ext_resource type="Script" uid="uid://co5dyc7c77id6" path="res://Character/Scripts/States/AirState.gd" id="7_hdgs6"]
+[ext_resource type="Script" uid="uid://86hyqgbkswqv" path="res://Character/Scripts/States/FishingState.gd" id="8_y7btg"]
 [ext_resource type="PackedScene" uid="uid://c6y37m3sjvjj8" path="res://Objects/Pop-ups/reel_game.tscn" id="9_78y5p"]
 [ext_resource type="PackedScene" uid="uid://c7887qprjbdwc" path="res://Objects/Pickups/pickup_fish.tscn" id="9_fj0lw"]
-[ext_resource type="Script" path="res://Character/Scripts/States/CatchState.gd" id="12_10qre"]
-[ext_resource type="Script" path="res://Character/Scripts/CharacterInventory.gd" id="12_012h4"]
+[ext_resource type="Script" uid="uid://d72rqvpbhrqd" path="res://Character/Scripts/States/CatchState.gd" id="12_10qre"]
+[ext_resource type="Script" uid="uid://doapdgev5qlc" path="res://Character/Scripts/CharacterInventory.gd" id="12_012h4"]
 [ext_resource type="PackedScene" uid="uid://q3ry6ysrgxga" path="res://Objects/hook/hook.tscn" id="13_f05vd"]
-[ext_resource type="Script" path="res://Character/Scripts/States/LandingState.gd" id="13_k37h2"]
-[ext_resource type="Script" path="res://Character/Scripts/States/CastingState.gd" id="14_m1jsq"]
-[ext_resource type="Script" path="res://Character/Scripts/States/ReelingState.gd" id="14_v03at"]
-[ext_resource type="Script" path="res://Character/Scripts/States/StateDebugLabel.gd" id="14_ymhma"]
+[ext_resource type="Script" uid="uid://qaxslq4yi0wu" path="res://Character/Scripts/States/LandingState.gd" id="13_k37h2"]
+[ext_resource type="Script" uid="uid://dfoac52k3kvnp" path="res://Character/Scripts/States/CastingState.gd" id="14_m1jsq"]
+[ext_resource type="Script" uid="uid://da0rmm1ao8fwl" path="res://Character/Scripts/States/ReelingState.gd" id="14_v03at"]
+[ext_resource type="Script" uid="uid://lj6d1ofvjbmh" path="res://Character/Scripts/States/StateDebugLabel.gd" id="14_ymhma"]
+[ext_resource type="Script" uid="uid://ddffcqn50l5xk" path="res://Character/Scripts/States/MiningState.gd" id="15_xeg24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2jpu"]
 size = Vector2(18, 32)
@@ -304,6 +305,47 @@ tracks/2/keys = {
 "values": [Vector2(-1, -16)]
 }
 
+[sub_resource type="Animation" id="Animation_ypt3r"]
+resource_name = "mining"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ub6yf"]
 resource_name = "run"
 length = 0.6
@@ -430,16 +472,17 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yetax"]
 _data = {
-"RESET": SubResource("Animation_y2irp"),
-"catch": SubResource("Animation_s1aj7"),
-"down": SubResource("Animation_upapl"),
-"fishing": SubResource("Animation_cbj8f"),
-"idle": SubResource("Animation_2cbwp"),
-"jump_start": SubResource("Animation_kt3f3"),
-"land": SubResource("Animation_25nmg"),
-"run": SubResource("Animation_ub6yf"),
-"up": SubResource("Animation_r02cp"),
-"walk": SubResource("Animation_qmuar")
+&"RESET": SubResource("Animation_y2irp"),
+&"catch": SubResource("Animation_s1aj7"),
+&"down": SubResource("Animation_upapl"),
+&"fishing": SubResource("Animation_cbj8f"),
+&"idle": SubResource("Animation_2cbwp"),
+&"jump_start": SubResource("Animation_kt3f3"),
+&"land": SubResource("Animation_25nmg"),
+&"mining": SubResource("Animation_ypt3r"),
+&"run": SubResource("Animation_ub6yf"),
+&"up": SubResource("Animation_r02cp"),
+&"walk": SubResource("Animation_qmuar")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxi0a"]
@@ -485,6 +528,9 @@ animation = &"jump_start"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r07il"]
 animation = &"land"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_054po"]
+animation = &"mining"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tt6o7"]
 animation = &"up"
 
@@ -523,6 +569,10 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lk4sx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8obco"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5b7bg"]
 states/End/position = Vector2(540, 84)
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_kt1dp")
@@ -538,13 +588,12 @@ states/jump_start/node = SubResource("AnimationNodeAnimation_r1gfr")
 states/jump_start/position = Vector2(37, -48)
 states/land/node = SubResource("AnimationNodeAnimation_r07il")
 states/land/position = Vector2(313, 84)
+states/mining/node = SubResource("AnimationNodeAnimation_054po")
+states/mining/position = Vector2(-3, 165)
 states/up/node = SubResource("AnimationNodeAnimation_tt6o7")
 states/up/position = Vector2(170, -37)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_w1fwc"), "Move", "jump_start", SubResource("AnimationNodeStateMachineTransition_tp1pd"), "jump_start", "up", SubResource("AnimationNodeStateMachineTransition_id3ur"), "up", "down", SubResource("AnimationNodeStateMachineTransition_e3psh"), "down", "land", SubResource("AnimationNodeStateMachineTransition_8fajv"), "land", "Move", SubResource("AnimationNodeStateMachineTransition_5uqw4"), "down", "up", SubResource("AnimationNodeStateMachineTransition_rjyhs"), "Move", "up", SubResource("AnimationNodeStateMachineTransition_tt0gm"), "Move", "down", SubResource("AnimationNodeStateMachineTransition_l6mys"), "fishing", "catch", SubResource("AnimationNodeStateMachineTransition_rm48k"), "Move", "fishing", SubResource("AnimationNodeStateMachineTransition_kjnj3"), "fishing", "jump_start", SubResource("AnimationNodeStateMachineTransition_yrtr8"), "fishing", "Move", SubResource("AnimationNodeStateMachineTransition_rosrv"), "catch", "Move", SubResource("AnimationNodeStateMachineTransition_mwa3n")]
-graph_offset = Vector2(-663, -90)
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_a8ecw"]
-resource_local_to_scene = false
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_w1fwc"), "Move", "jump_start", SubResource("AnimationNodeStateMachineTransition_tp1pd"), "jump_start", "up", SubResource("AnimationNodeStateMachineTransition_id3ur"), "up", "down", SubResource("AnimationNodeStateMachineTransition_e3psh"), "down", "land", SubResource("AnimationNodeStateMachineTransition_8fajv"), "land", "Move", SubResource("AnimationNodeStateMachineTransition_5uqw4"), "down", "up", SubResource("AnimationNodeStateMachineTransition_rjyhs"), "Move", "up", SubResource("AnimationNodeStateMachineTransition_tt0gm"), "Move", "down", SubResource("AnimationNodeStateMachineTransition_l6mys"), "fishing", "catch", SubResource("AnimationNodeStateMachineTransition_rm48k"), "Move", "fishing", SubResource("AnimationNodeStateMachineTransition_kjnj3"), "fishing", "jump_start", SubResource("AnimationNodeStateMachineTransition_yrtr8"), "fishing", "Move", SubResource("AnimationNodeStateMachineTransition_rosrv"), "catch", "Move", SubResource("AnimationNodeStateMachineTransition_mwa3n"), "mining", "Move", SubResource("AnimationNodeStateMachineTransition_lk4sx"), "Move", "mining", SubResource("AnimationNodeStateMachineTransition_8obco")]
+graph_offset = Vector2(-508, 20)
 
 [sub_resource type="GDScript" id="GDScript_ys0ks"]
 script/source = "extends Node2D
@@ -581,6 +630,8 @@ _bundled = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 257
+collision_mask = 257
 input_pickable = true
 script = ExtResource("1_c3ldi")
 
@@ -589,7 +640,7 @@ visible = false
 texture_filter = 1
 position = Vector2(-1, -51)
 scale = Vector2(1.15625, 1.1875)
-texture = ExtResource("2_awhx3")
+texture = ExtResource("2_o1n6y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -608,15 +659,13 @@ shape = SubResource("RectangleShape2D_u2jpu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yetax")
+&"": SubResource("AnimationLibrary_yetax")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_5b7bg")
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_a8ecw")
-parameters/Move/blend_position = 0.0
+parameters/Move/blend_position = 0.121238
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "animation_tree", "character")]
 script = ExtResource("6_3uil5")
@@ -655,18 +704,25 @@ reel_game = ExtResource("9_78y5p")
 fish_pickup = ExtResource("9_fj0lw")
 can_move = false
 
+[node name="Mining" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("15_xeg24")
+can_move = false
+
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+visible = false
 texture_filter = 1
-offset_left = -64.0
-offset_top = -58.0
-offset_right = 68.0
-offset_bottom = -32.0
+offset_left = -44.0
+offset_top = -66.0
+offset_right = 97.0
+offset_bottom = -40.0
 text = "State:"
 script = ExtResource("14_ymhma")
 state_machine = NodePath("../CharacterStateMachine")
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("12_012h4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

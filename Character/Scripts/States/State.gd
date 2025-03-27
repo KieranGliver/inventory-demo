@@ -16,6 +16,7 @@ var catch_state : State
 var landing_state : State
 var casting_state : State
 var reeling_state : State
+var mining_state : State
 
 func state_process(delta):
 	pass
